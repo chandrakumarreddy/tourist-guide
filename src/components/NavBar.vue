@@ -3,7 +3,7 @@
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 			<div class="navbar-brand">
 				<router-link class="navbar-item" to="/">
-					<img src="@/assets/logo.png" width="112" height="100%" />
+					<span class="logo">Tourist Guide</span>
 				</router-link>
 
 				<a
@@ -36,3 +36,12 @@
 		</nav>
 	</div>
 </template>
+
+<style>
+.logo {
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: bold;
+	color: cornflowerblue;
+}
+</style>
