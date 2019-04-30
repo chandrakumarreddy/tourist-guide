@@ -10,6 +10,15 @@
 				</p>
 			</div>
 		</section>
+		<section class="trips" v-if="trips">
+			<div class="card" v-for="trip in trips" :key="trip.id">
+				<div class="card-image">
+					<figure class="image is-4by3">
+						<img :src="trip.image" :alt="trip.name" />
+					</figure>
+				</div>
+			</div>
+		</section>
 	</div>
 </template>
 
@@ -18,8 +27,19 @@ import api from "@/api";
 
 export default {
 	name: "home",
+	data() {
+		return {
+			trips: []
+		};
+	},
 	created() {
-		api.getAll().then(data => console.log(data));
+		api.getAll().then(snapshot => {
+			snapshot.forEach(doc => {
+				let trip = doc.data();
+				trip.id = doc.id;
+				this.trips.push(trip);
+			});
+		});
 	}
 };
 </script>
@@ -34,5 +54,10 @@ export default {
 }
 .home__intro--section h1 {
 	margin: 10px;
+}
+.trips {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 20px;
 }
 </style>
