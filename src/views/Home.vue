@@ -2,10 +2,10 @@
 	<div class="home">
 		<section class="home__introduction">
 			<div class="home__intro--section">
-				<h3>Best place to add your tourist experiences</h3>
+				<h1>Best place to add your trip experiences</h1>
 				<p>
-					<router-link to="/add/new" class="button is-light"
-						>add your experience
+					<router-link to="/add/new" class="button is-link ">
+						Add your experience
 					</router-link>
 				</p>
 			</div>
@@ -14,8 +14,13 @@
 </template>
 
 <script>
+import api from "@/api";
+
 export default {
-	name: "home"
+	name: "home",
+	created() {
+		api.getAll().then(data => console.log(data));
+	}
 };
 </script>
 
@@ -27,7 +32,7 @@ export default {
 .home__intro--section {
 	text-align: center;
 }
-.home__intro--section h3 {
+.home__intro--section h1 {
 	margin: 10px;
 }
 </style>
