@@ -14,5 +14,11 @@ export default {
 			image,
 			description
 		});
+	},
+	getTrip(id) {
+		return db
+			.collection("trips")
+			.doc(id)
+			.get();
 	}
 };

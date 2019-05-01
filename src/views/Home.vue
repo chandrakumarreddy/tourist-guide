@@ -12,10 +12,14 @@
 		</section>
 		<section class="trips" v-if="trips.length > 0">
 			<div class="card" v-for="trip in trips" :key="trip.id">
-				<div class="card-image ">
-					<figure class="image is-4by3 card__custom--image">
-						<img :src="trip.image" :alt="trip.name" />
-					</figure>
+				<div class="card-image">
+					<router-link
+						:to="{ name: 'trip', params: { _id: trip.id } }"
+					>
+						<figure class="image is-4by3 card__custom--image">
+							<img :src="trip.image" :alt="trip.name" />
+						</figure>
+					</router-link>
 				</div>
 			</div>
 		</section>

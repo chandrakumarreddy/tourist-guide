@@ -17,6 +17,11 @@ export default new Router({
 			path: "/add/new",
 			name: "add-trip",
 			component: () => import("./views/AddNew.vue")
+		},
+		{
+			path: "/trip/:_id",
+			name: "trip",
+			component: () => import("./views/ViewTrip.vue")
 		}
 	]
 });
