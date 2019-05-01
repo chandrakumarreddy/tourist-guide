@@ -10,13 +10,18 @@
 				</p>
 			</div>
 		</section>
-		<section class="trips" v-if="trips">
+		<section class="trips" v-if="trips.length > 0">
 			<div class="card" v-for="trip in trips" :key="trip.id">
-				<div class="card-image">
-					<figure class="image is-4by3">
+				<div class="card-image ">
+					<figure class="image is-4by3 card__custom--image">
 						<img :src="trip.image" :alt="trip.name" />
 					</figure>
 				</div>
+			</div>
+		</section>
+		<section v-else>
+			<div class="pageloader">
+				<span class="title">Loading......</span>
 			</div>
 		</section>
 	</div>
@@ -48,6 +53,7 @@ export default {
 .home__introduction {
 	display: flex;
 	justify-content: center;
+	margin-bottom: 30px;
 }
 .home__intro--section {
 	text-align: center;
@@ -59,5 +65,15 @@ export default {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 20px;
+}
+.card__custom--image {
+	cursor: pointer;
+}
+.card__custom--image img {
+	border-radius: 6px;
+}
+.pageloader {
+	text-align: center;
+	margin: 20px 0;
 }
 </style>

@@ -7,5 +7,12 @@ export default {
 			.get()
 			.then(snapshots => snapshots)
 			.catch(err => err);
+	},
+	addTrip(name, image, description) {
+		return db.collection("trips").add({
+			name,
+			image,
+			description
+		});
 	}
 };
